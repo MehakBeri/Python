@@ -30,32 +30,23 @@ expected worst-case space complexity is O(1).
 # you can write to stdout for debugging purposes, e.g.
 # print("this is a debug message")
 
+# m = len(bin_N) = o(log(N))
+# time complexity = o(m)
+# space complexity = o(1)
+# lc soln= https://leetcode.com/problems/binary-gap/solution/ 
+
 def solution(N):
     # write your code in Python 3.6
-    b= bin(N)[2:]
-    print(b)
-    strBin= str(b)
-    gaps=[]
-    end=0
-    start=0
-    i=0
-    while True:
-        if start==-1 or end==-1:
-            break
-        start= b.find('1',end)
-        end= b.find('1',start+1)
-        if end-start>0:
-          gaps.append(end-start)
-        #print('start: '+str(start)+' end: '+str(end))
-        i+=1
-     
-    gaps=sorted(gaps)   
-    #print(gaps)
-    if len(gaps)==0:
-        #print('jcvznl')
-        return 0
-    else:
-     return gaps[-1]-1
+    start = -1
+    end = -1
+    bin_N = bin(N)[2:] #o(m)
+    gap = 0
+    for j in range(start+1, len(bin_N)): #o(m)
+        if bin_N[j] == '1':
+            end = j
+            gap = max(gap, end-start-1)
+            start = j
+    return gap
  
 def main():
     print(solution(105))
