@@ -10,6 +10,8 @@ def solution(A, K):
     # write your code in Python 3.6
 
     # todo: time = o(len(A)) and const space
+    # Euclid’s Algorithm: It is an efficient method for finding the GCD(Greatest  Common Divisor) of two integers. The time complexity of this algorithm is O(log(min(a, b))
+    # juggling algorithm linear solution- https://stackoverflow.com/questions/23321216/rotating-an-array-using-juggling-algorithm 
 
     # time = o(len(A)*K)
     # space = o(1)
